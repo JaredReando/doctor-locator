@@ -1,4 +1,6 @@
-{
+export function testData() {
+  let testData = JSON.new(
+  {
   "meta": {
     "data_type": "array",
     "item_type": "Doctor",
@@ -5184,4 +5186,6 @@
       "npi": "1811197544"
     }
   ]
+})
+  return testData
 }
