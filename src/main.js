@@ -1,4 +1,4 @@
-import { Locator } from './locator';
+import { DoctorLocator } from './doctor-locator';
 import { shuffle } from './functions';
 
 import './styles.css';
@@ -8,7 +8,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 $(document).ready(function() {
-console.log("Document loaded");
-console.log("API KEY: " + `${process.env.TEST}`)
+  $("#search-submit").click(() => {
+    let doctorLocator = new DoctorLocator();
+    const searchInput = $("#doctor-search-input").val();
+    $("#doctor-search-input").val("");
 
+    let newSearch = doctorLocator.symptomSearch(searchInput)
+
+    let apiObject = newSearch.then((value) => {
+      let apiObject = JSON.parse(value)
+      return apiObject;
+    });
+
+    console.log(apiObject);
+  });
 });
