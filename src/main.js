@@ -7,6 +7,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
+// function getAddress();
+
+
+
 $(document).ready(function() {
   $("#search-submit").click(() => {
     let doctorLocator = new DoctorLocator();
@@ -15,9 +20,10 @@ $(document).ready(function() {
 
     let newSearch = doctorLocator.symptomSearch(searchInput)
 
-    let apiObject = newSearch.then((value) => {
-      let apiObject = JSON.parse(value)
-      return apiObject;
+    let apiObject = newSearch.then((response) => {
+      let apiObject = JSON.parse(response)
+       console.log(`${apiObject.data[0].profile.first_name} ${apiObject.data[0].profile.last_name}`);
+       console.log(`${apiObject.data[0].practices[0].accepts_new_patients} ${apiObject.data[0].practices[0].name}`)
     });
 
     console.log(apiObject);
