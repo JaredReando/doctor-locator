@@ -9,6 +9,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
+function getPhoneNumber(practices) {
+  const allPhoneNumbers = practices[0].phones;
+  let phoneNumber = '';
+  allPhoneNumbers.forEach(function(phone) {
+    if(phone.type === 'landline') {
+      phoneNumber = phone.number
+    }
+  });
+
+  return phoneNumber;
+}
+
+function getWebsite(practices) {
+  const website = practices[0].website;
+  return website;
+}
+
 function getAddress(practices) {
   const street = practices[0].visit_address.street;
   const city = practices[0].visit_address.city;
@@ -19,14 +36,28 @@ function getAddress(practices) {
   return address;
 }
 
+function newPatientMessage(practices) {
+  const newPatientStatus = practices[0].accepts_new_patients;
+  if(newPatientStatus) {
+    return "Accepting new patients at this location";
+  } else {
+
+    return "This location not accepting new patients";
+  }
+}
+
 
 function doctorInfo(data) {
-  let firstName = data.profile.first_name;
-  let lastName = data.profile.last_name;
+  const firstName = data.profile.first_name;
+  const lastName = data.profile.last_name;
   const fullName = `${firstName} ${lastName}`;
   const address = getAddress(data.practices);
-  console.log(fullName);
-  console.log(address);
+  const acceptsPatients = newPatientMessage(data.practices);
+  const phoneNumber = getPhoneNumber(data.practices);
+  console.log("Full name:", fullName);
+  console.log("address:", address);
+  console.log("new patients?:", acceptsPatients);
+  console.log("phone:", phoneNumber);
 
 }
 
