@@ -1,5 +1,8 @@
 export class Locator {
 
+
+let defaultLatLong = [45.538960, -122.526279];
+
   constructor(characterId) {
     this.characterId = characterId;
   }
@@ -7,7 +10,7 @@ export class Locator {
   promise() {
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
-      let url = `https://rickandmortyapi.com/api/character/${this.characterId}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?${this.characterId}`;
 
         request.onload = function() {
         if (this.status === 200) {
