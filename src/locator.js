@@ -1,13 +1,13 @@
 export class Locator {
 
 
-let defaultLatLong = [45.538960, -122.526279];
 
   constructor(characterId) {
     this.characterId = characterId;
   }
 
   promise() {
+    let defaultLatLong = [45.538960, -122.526279];
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
       let url = `https://api.betterdoctor.com/2016-03-01/doctors?${this.characterId}`;
