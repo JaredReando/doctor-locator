@@ -1,6 +1,5 @@
 import { DoctorLocator } from './doctor-locator';
-import { shuffle } from './functions';
-import { listItem } from './templates'
+import { listItem } from './html-forms'
 
 import './styles.css';
 import $ from 'jquery';
@@ -23,6 +22,7 @@ function getPhoneNumber(practices) {
 
 function getWebsite(practices) {
   const website = practices[0].website;
+  debugger;
   return website;
 }
 
@@ -52,6 +52,7 @@ function doctorInfo(data) {
   const lastName = data.profile.last_name;
   const fullName = `${firstName} ${lastName}`;
   const address = getAddress(data.practices);
+  const website = getWebsite(data.practices);
   const availability = getAvailability(data.practices);
   const phoneNumber = getPhoneNumber(data.practices);
   const allInfo = {name: fullName, address: address, phone: phoneNumber, availability: availability};
