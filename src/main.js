@@ -54,10 +54,9 @@ function doctorInfo(data) {
   const address = getAddress(data.practices);
   const acceptsPatients = newPatientMessage(data.practices);
   const phoneNumber = getPhoneNumber(data.practices);
-  console.log("Full name:", fullName);
-  console.log("address:", address);
-  console.log("new patients?:", acceptsPatients);
-  console.log("phone:", phoneNumber);
+  const allInfo = {name: fullName, address: address, vacancy: acceptsPatients, phone: phoneNumber};
+
+  return allInfo;
 
 }
 
@@ -73,8 +72,10 @@ $(document).ready(function() {
 
     newSearch.then((response) => {
       let searchResult = JSON.parse(response);
-      doctorInfo(searchResult.data[0]);
 
+      searchResult.data.forEach(function(record) {
+        console.log(doctorInfo(record));
+      });
     });
 
 
