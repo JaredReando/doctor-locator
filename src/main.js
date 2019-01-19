@@ -1,6 +1,6 @@
 import { DoctorLocator } from './doctor-locator';
 import { shuffle } from './functions';
-import { testData } from './response.js'
+import { listItem } from './templates'
 
 import './styles.css';
 import $ from 'jquery';
@@ -36,9 +36,9 @@ function getAddress(practices) {
   return address;
 }
 
-function newPatientMessage(practices) {
-  const newPatientStatus = practices[0].accepts_new_patients;
-  if(newPatientStatus) {
+function getAvailability(practices) {
+  const availability = practices[0].accepts_new_patients;
+  if(availability) {
     return "Accepting new patients at this location";
   } else {
 
@@ -52,9 +52,9 @@ function doctorInfo(data) {
   const lastName = data.profile.last_name;
   const fullName = `${firstName} ${lastName}`;
   const address = getAddress(data.practices);
-  const acceptsPatients = newPatientMessage(data.practices);
+  const availability = getAvailability(data.practices);
   const phoneNumber = getPhoneNumber(data.practices);
-  const allInfo = {name: fullName, address: address, vacancy: acceptsPatients, phone: phoneNumber};
+  const allInfo = {name: fullName, address: address, phone: phoneNumber, availability: availability};
 
   return allInfo;
 
@@ -67,14 +67,17 @@ $(document).ready(function() {
     let doctorLocator = new DoctorLocator();
     const searchInput = $("#doctor-search-input").val();
     $("#doctor-search-input").val("");
+    $("#search-results").empty();
 
-    let newSearch = doctorLocator.symptomSearch(searchInput)
+    let searchPromise = doctorLocator.symptomSearch(searchInput)
 
-    newSearch.then((response) => {
+    searchPromise.then((response) => {
       let searchResult = JSON.parse(response);
 
       searchResult.data.forEach(function(record) {
-        console.log(doctorInfo(record));
+        const doctorInfoHash = doctorInfo(record);
+        const doctorHtmlRecord = listItem(doctorInfoHash);
+        $("#search-results").append(doctorHtmlRecord)
       });
     });
 
