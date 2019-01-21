@@ -1,4 +1,24 @@
+.container-fluid {
+  background-color: green;
+}
+
 img {
   width: 200px;
-  display: inline-block;
+  display: inline;
+}
+
+.top {
+  background-color: green;
+  height: 20vh;
+}
+
+.middle {
+  background-color: tan;
+  overflow: auto;
+}
+
+.bottom {
+  background-color: green;
+  /* overflow: scroll; */
+  height: 100%;
 }

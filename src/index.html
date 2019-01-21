@@ -4,44 +4,73 @@
     <title>Doctor Locator</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
+
+
       <div class="row">
-        <div class="col-md-12 text-center">
-          <h2>Find a local doctor:</h2>
-          <div>
-            <img id="logo-image" src="https://image.flaticon.com/icons/svg/206/206875.svg" alt="">
-          </div>
+        <div class="col-sm-12 text-center top">
+          <h1>Find a Local Doctor</h1>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-12 text-center">
-          <label>Search:</label>
-          <input id="doctor-search-input" type="text" name="" value="">
-          <button id="search-submit" type="submit" name="button">Submit</button>
 
-          <table>
-              <thead>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Phone</th>
-                  <th>Website</th>
-                  <th>Availability</th>
-              </thead>
-              <tbody id="search-results">
-
-                <tr>
-                    <td>"name"</td>
-                    <td>"address"</td>
-                    <td>"phone"</td>
-                    <td>Website</td>
-                    <td>availability</td>
-                </tr>
+        <div class="col-md-12 text-center middle">
+          <img id="logo-image" src="https://image.flaticon.com/icons/svg/206/206875.svg" alt="">
+          <img id="logo-image" src="https://image.flaticon.com/icons/svg/206/206875.svg" alt="">
 
 
 
+          <div>
+            <label>Search:</label>
+            <select id="search-type">
+              <option>Search by:</option>
+              <option value="name">Doctor</option>
+              <option value="query">Ailment</option>
+            </select>
+            <select id="search-radius">
+              <option>Results radius:</option>
+              <option value="5">5 miles</option>
+              <option value="10">10 miles</option>
+              <option value="25">25 miles</option>
+              <option value="50">50 miles</option>
+            </select>
+            <input id="doctor-search-input" type="text" placeholder="Search terms">
+            <input id="zip-input" type="text" name="" placeholder="ZIP CODE">
+            <button id="search-submit" type="submit" name="button">Submit</button>
+          </div>
+        </div>
 
-              </tbody>
+
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-8 offset-2 text-center bottom">
+
+          <table class="text-center">
+            <thead>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Availability</th>
+            </thead>
+            <tbody id="search-results">
+
+              <tr>
+                <td>"name"</td>
+                <td>"address"</td>
+                <td>"phone"</td>
+                <td>Website</td>
+                <td>availability</td>
+              </tr>
+
+
+
+
+            </tbody>
           </table>
 
 
@@ -49,7 +78,6 @@
 
         </div>
       </div>
-
     </div>
 
   </body>

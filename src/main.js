@@ -5,6 +5,7 @@ import './styles.css';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+var printMSG = require('zip2gps')
 
 
 
@@ -22,7 +23,6 @@ function getPhoneNumber(practices) {
 
 function getWebsite(practices) {
   const website = practices[0].website;
-  debugger;
   return website;
 }
 
@@ -64,15 +64,33 @@ function doctorInfo(data) {
 
 
 $(document).ready(function() {
+  printMSG.printMSG();
+  console.log(zipConvert(97230));
+
   $("#search-submit").click(() => {
     let doctorLocator = new DoctorLocator();
     const searchInput = $("#doctor-search-input").val();
-    $("#doctor-search-input").val("");
-    $("#search-results").empty();
+    const searchZip = $("#zip-input").val();
+    const searchType = $("#search-type").val();
+    const searchRadius = $("#search-radius").val();
 
-    let searchPromise = doctorLocator.symptomSearch(searchInput)
+    $("#doctor-search-input").val("");
+    $("#zip-input").val("");
+    $("#search-type").val("");
+    $("#search-radius").val("");
+
+    const gpsLocation = zipConvert(searchZip);
+    console.log("Location: " + gpsLocation);
+    console.log("Type: " + searchType);
+    console.log("Zip: " + searchZip);
+    console.log("Rdaius: " + searchRadius);
+
+    const searchPromise = doctorLocator.careSearch(searchType, searchInput, gpsLocation, searchRadius);
+
+    console.log("Promise: " + searchPromise);
 
     searchPromise.then((response) => {
+      $("#search-results").empty();
       let searchResult = JSON.parse(response);
 
       searchResult.data.forEach(function(record) {
