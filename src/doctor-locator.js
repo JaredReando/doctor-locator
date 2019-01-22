@@ -23,4 +23,4 @@ class DoctorLocator {
   }
 }
 
-  export { DoctorLocator };
+export { DoctorLocator };

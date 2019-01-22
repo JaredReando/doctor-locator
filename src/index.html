@@ -45,22 +45,23 @@
 
       <div class="row">
         <div class="col-md-8 offset-2 text-center bottom">
+          <p id="no-results-found">Hide Me.</p>
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope='col'></th>
-                <th scope="col">Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-                <th scope="col">New Patients?</th>
-              </tr>
-            </thead>
-            <tbody id="search-results">
-
-            </tbody>
-          </table>
+          <div id="search-results-table">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope='col'></th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">New Patients?</th>
+                </tr>
+              </thead>
+              <tbody id="search-results-line-items"></tbody>
+            </table>
+          </div>
 
 
 

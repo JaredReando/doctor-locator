@@ -19,14 +19,12 @@ function getWebsite(practices) {
   return website;
 }
 
-
 function getAddress(practices) {
   const street = practices[0].visit_address.street;
   const city = practices[0].visit_address.city;
   const state = practices[0].visit_address.state;
   const zip = practices[0].visit_address.zip;
   const address = `${street} ${city}, ${state} ${zip}`;
-
   return address;
 }
 
@@ -49,9 +47,7 @@ function doctorInfo(data) {
   const availability = getAvailability(data.practices);
   const phoneNumber = getPhoneNumber(data.practices);
   const allInfo = {imageURL: imageURL, name: fullName, address: address, phone: phoneNumber, availability: availability};
-
   return allInfo;
-
 }
 
 export {getPhoneNumber, getWebsite, getAddress, getAvailability, doctorInfo};
