@@ -9,7 +9,6 @@ class DoctorLocator {
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
       let url = `${this.baseURL}${searchType}=${searchInput}&location=${gpsLocation},${searchRadius}&user_location=${gpsLocation}&skip=0&limit=100&user_key=${this.apiKey}`;
-      console.log("URL: " + url);
         request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
