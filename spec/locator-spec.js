@@ -1,4 +1,4 @@
-import { Locator } from './../src/locator.js';
+import { DoctorLocator } from './../src/doctor-locator.js';
 
 
 describe('Locator', function() {
