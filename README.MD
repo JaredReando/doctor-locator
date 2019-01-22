@@ -41,9 +41,7 @@ For questions or feedback, email me at jaredreando@gmail.com
 
 Created with JavaScript, using Webpack
 
-## Known Bugs
-- No known bugs
-
 ## Legal
+MIT License
 
 Copyright (c) 2019 Jared Reando

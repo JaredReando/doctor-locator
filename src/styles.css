@@ -1,24 +1,25 @@
-.container-fluid {
-  background-color: green;
+
+.main-image {
+  width: 300px;
+  display: inline;
 }
 
-img {
+.doc-iamge {
   width: 40px;
   display: inline;
 }
 
 .top {
-  background-color: green;
   height: 20vh;
+  vertical-align: middle;
+  line-height: 20vh;
 }
 
 .middle {
-  background-color: tan;
-  overflow: auto;
+  border: 1px, black;
 }
 
 .bottom {
-  background-color: green;
-  /* overflow: scroll; */
+  overflow: scroll;
   height: 100%;
 }

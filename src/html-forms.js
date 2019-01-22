@@ -4,7 +4,7 @@ export function listItem(hash) {
 
   `<tr>
       <th scope='row'>${hash.id}</th>
-      <td><img src="${hash.imageURL}" alt="${hash.name}"></td>
+      <td><img class='doc-image' src="${hash.imageURL}" alt="${hash.name}"></td>
       <td>${hash.name}</td>
       <td>${hash.address}</td>
       <td>${hash.phone}</td>
